@@ -1,0 +1,4 @@
+target/
+.vertx/
+pkg/
+*.pyc

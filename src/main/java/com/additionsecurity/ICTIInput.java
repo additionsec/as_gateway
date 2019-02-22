@@ -1,0 +1,36 @@
+// Copyright 2019 J Forristal LLC
+// Copyright 2016 Addition Security Inc.
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//    http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+
+
+package com.additionsecurity;
+
+import java.util.Properties;
+import java.io.InputStream;
+
+public interface ICTIInput {
+
+	//public CTIItem[] process(byte[] ip, long ts, byte[] data) throws ICTIInputException;
+	public CTIItem[] process(byte[] ip, long ts, InputStream data) throws ICTIInputException;
+
+	public String description();
+
+	public byte[] learnedOrgId();
+
+	public static class ICTIInputException extends Exception {
+		public ICTIInputException() { super(); }
+		public ICTIInputException(String message) { super(message); }
+		public ICTIInputException(String message, Throwable cause) { super(message, cause); }
+	}
+}
